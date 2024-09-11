@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Delicioso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 0.5em 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            display: inline-block;
+            padding: 1em 0;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f5a7d6; /* Cambio de color al pasar el ratón */
+        }
+        section {
+            padding: 2em;
+            text-align: center;
+        }
+        .welcome-section {
+            background: url('https://i.etsystatic.com/11758033/r/il/dd69fc/3498104366/il_570xN.3498104366_plwj.jpg') no-repeat center center;
+            background-size: contain; /* Ajusta el tamaño de la imagen para que quepa dentro del contenedor */
+            height: 150px; /* Altura fija para el logo de bienvenida */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        .welcome-text {
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .about {
+            padding: 2em;
+            text-align: center;
+        }
+        .hours {
+            padding: 2em;
+            text-align: center;
+        }
+        .testimonials {
+            padding: 2em;
+            text-align: center;
+        }
+        .testimonial {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: calc(30% - 40px);
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .events {
+            padding: 2em;
+            text-align: center;
+        }
+        .event-item {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: calc(30% - 40px);
+            box-sizing: border-box;
+        }
+        .reservation {
+            color: #fff;
+            padding: 2em;
+            text-align: center;
+        }
+        .reservation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2em;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        .reservation-form input, .reservation-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .reservation-form button {
+            background-color: #f5a7d6;
+            color: #333;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .chefs {
+            padding: 2em;
+            text-align: center;
+        }
+        .chef-item {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: calc(30% - 40px);
+            box-sizing: border-box;
+        }
+        .services {
+            padding: 2em;
+            text-align: center;
+        }
+        .service-item {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: calc(30% - 40px);
+            box-sizing: border-box;
+        }
+        .blog {
+            padding: 2em;
+            text-align: center;
+        }
+        .blog-post {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: calc(30% - 40px);
+            box-sizing: border-box;
+        }
+        .contact-form {
+            padding: 2em;
+            text-align: center;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .contact-form button {
+            background-color: #f5a7d6;
+            color: #333;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .menu {
+            padding: 2em;
+            text-align: center;
+        }
+        .menu-item {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            display: inline-block;
+            width: calc(30% - 40px);
+            box-sizing: border-box;
+        }
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Restaurante Delicioso</h1>
+</header>
+
+<nav>
+    <a href="#about">Sobre Nosotros</a>
+    <a href="#hours">Horario</a>
+    <a href="#testimonials">Testimonios</a>
+    <a href="#events">Eventos</a>
+    <a href="#reservation">Reservas</a>
+    <a href="#chefs">Chefs</a>
+    <a href="#services">Servicios</a>
+    <a href="#blog">Blog</a>
+    <a href="#menu">Menú</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<section class="welcome-section">
+    <!-- No se utiliza la etiqueta <img> para el logo -->
+</section>
+
+<section id="about" class="about">
+    <h2>Sobre Nosotros</h2>
+    <p>Restaurante Delicioso es conocido por su cocina de calidad y su ambiente acogedor. Ven y disfruta de una experiencia culinaria única.</p>
+</section>
+
+<section id="hours" class="hours">
+    <h2>Horario de Apertura</h2>
+    <p>Lunes - Viernes: 10:00 AM - 10:00 PM</p>
+    <p>Sábado - Domingo: 12:00 PM - 11:00 PM</p>
+</section>
+
+<section id="testimonials" class="testimonials">
+    <h2>Testimonios</h2>
+    <div class="testimonial">
+        <p>"La comida es deliciosa y el servicio es excelente. Definitivamente regresaré."</p>
+        <p>- Juan Pérez</p>
+    </div>
+    <div class="testimonial">
+        <p>"El ambiente es acogedor y los platos son una obra de arte. Muy recomendado."</p>
+        <p>- María García</p>
+    </div>
+    <div class="testimonial">
+        <p>"Una experiencia culinaria inolvidable. La mejor opción para una cena especial."</p>
+        <p>- Carlos López</p>
+    </div>
+</section>
+
+<section id="events" class="events">
+    <h2>Eventos</h2>
+    <div class="event-item">
+        <h3>Evento 1</h3>
+        <p>Celebración especial de verano</p>
+        <p>Únete a nosotros para una noche especial llena de música en vivo y platos exclusivos de temporada. Fecha: 15 de julio.</p>
+    </div>
+    <div class="event-item">
+        <h3>Evento 2</h3>
+        <p>Noche de Tapas</p>
+        <p>Disfruta de una variedad de deliciosos aperitivos. Fecha: 20 de julio.</p>
+    </div>
+    <div class="event-item">
+        <h3>Evento 3</h3>
+        <p>Cena de gala benéfica</p>
+        <p>Únete a nosotros para apoyar a una causa noble mientras disfrutas de una cena de gala exquisita. Beneficiando a la comunidad local. Fecha: 25 de julio.</p>
+    </div>
+</section>
+
+<section id="reservation" class="reservation">
+    <h2>Reservas</h2>
+    <form class="reservation-form">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Teléfono" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <select name="guests" required>
+            <option value="" disabled selected>Número de invitados</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button type="submit">Reservar</button>
+    </form>
+</section>
+
+<section id="chefs" class="chefs">
+    <h2>Chefs</h2>
+    <div class="chef-item">
+        <h3>Chef Principal - María González</h3>
+        <p>Con más de 15 años de experiencia culinaria, María ha sido reconocida internacionalmente por su innovación en la cocina y su pasión por los ingredientes locales.</p>
+    </div>
+    <div class="chef-item">
+        <h3>Chef de Postres - Alejandro Torres</h3>
+        <p>Alejandro es el creador de nuestros postres exclusivos que cautivan con cada bocado. Su habilidad para combinar sabores y texturas lo convierte en una pieza fundamental de nuestro equipo culinario.</p>
+    </div>
+    <div class="chef-item">
+        <h3>Chef de Parrilla - Carlos Ramírez</h3>
+        <p>Carlos domina el arte de la parrilla, destacándose por sus carnes perfectamente cocidas y sus marinados únicos que deleitan a nuestros comensales con cada plato.</p>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <h2>Servicios</h2>
+    <div class="service-item">
+        <h3>Servicio de Catering</h3>
+        <p>Nuestro servicio de catering ofrece una experiencia gastronómica de primera clase para eventos corporativos y sociales. Personalizamos cada detalle para satisfacer tus necesidades.</p>
+    </div>
+    <div class="service-item">
+        <h3>Eventos Privados</h3>
+        <p>Disponemos de espacios privados para celebraciones especiales como cumpleaños, aniversarios y reuniones familiares. Nos encargamos de todo para que tú solo disfrutes.</p>
+    </div>
+    <div class="service-item">
+        <h3>Clases de Cocina</h3>
+        <p>Ofrecemos clases de cocina dirigidas por nuestros chefs expertos, donde aprenderás técnicas culinarias avanzadas y secretos de la cocina gourmet en un ambiente acogedor y educativo.</p>
+    </div>
+</section>
+
+<section id="blog" class="blog">
+    <h2>Blog</h2>
+    <div class="blog-post">
+        <h3>Receta de Temporada: Risotto de Espárragos</h3>
+        <p>Descubre cómo preparar nuestro delicioso risotto de espárragos con los consejos de nuestro chef principal, María González. Una receta paso a paso para sorprender a tu familia en casa.</p>
+    </div>
+    <div class="blog-post">
+        <h3>Guía de Vinos: Maridaje Perfecto</h3>
+        <p>Aprende a elegir el vino perfecto para acompañar tus platos favoritos con nuestra guía elaborada por nuestro sommelier. Consejos útiles para disfrutar al máximo cada experiencia gastronómica.</p>
+    </div>
+    <div class="blog-post">
+        <h3>Historias de Cocina: Tras Bastidores</h3>
+        <p>Sumérgete en las historias detrás de nuestras recetas más emblemáticas y descubre el trabajo y la pasión que hay en cada plato que servimos en Restaurante Delicioso.</p>
+    </div>
+</section>
+
+<section id="contacto" class="contact-form">
+    <h2>Contacto</h2>
+    <form>
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Teléfono" required>
+        <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Restaurante Delicioso. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
